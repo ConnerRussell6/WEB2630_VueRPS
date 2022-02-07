@@ -1,9 +1,5 @@
 new Vue({
-  el: '#app',
-  data: {
-
-  },
-  methods: {
-
-  }
+  el: "#app",
+  data: {},
+  methods: {},
 });
