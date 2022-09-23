@@ -13,33 +13,33 @@
       <h1 class="text-center">PLAYER</h1>
       <div class="wins">
         <div class="wins text-center" style="background-color: green; margin: 0; color: white;">
-
+         
         </div>
       </div>
     </div>
     <div class="small-6 columns">
       <h1 class="text-center">COMPUTER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green; margin: 0; color: white;">
-         
+        <div class="wins text-center" style="background-color: green;  margin: 0; color: white;">
+        
         </div>
       </div>
     </div>
   </section>
-  <section class="row controls">
+  <section class="row controls" v-if="start">
     <div class="small-12 columns">
-      <button id="start-game">START NEW GAME</button>
+      <button id="start-game" @click="start=!start">START NEW GAME</button>
     </div>
   </section>
-  <section class="row controls">
+  <section class="row controls" v-else>
     <div class="small-12 columns">
-      <button id="rock">ROCK</button>
-      <button id="paper">PAPER</button>
-      <button id="scissors">SCISSORS</button>
-      <button id="restart">RESTART</button>
+        <button id="rock" @click="player(1)">ROCK</button>
+        <button id="paper" @click="player(2)">PAPER</button>
+        <button id="scissors" @click="player(3)">SCISSORS</button>
+        <button id="restart" @click="reset()">RESTART</button>
     </div>
   </section>
-  <section class="row log">
+  <section class="row log" v-if="!start">
     <div class="small-12 columns">
       <ul>
         <li>
