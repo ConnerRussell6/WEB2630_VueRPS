@@ -12,16 +12,20 @@
     <div class="small-6 columns">
       <h1 class="text-center">PLAYER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green; margin: 0; color: white;">
-         
+        <div class="wins text-center" style="background-color: green; margin: 0; color: white;"
+        :style="{width: playerBar + '%'}">
+          {{updatePlayerScore}}
+          {{playerScore}}
         </div>
       </div>
     </div>
     <div class="small-6 columns">
       <h1 class="text-center">COMPUTER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green;  margin: 0; color: white;">
-        
+        <div class="wins text-center" style="background-color: green;  margin: 0; color: white;"
+        :style="{width: computerBar + '%'}">
+          {{updateComputerScore}}
+          {{computerScore}}
         </div>
       </div>
     </div>
@@ -33,17 +37,19 @@
   </section>
   <section class="row controls" v-else>
     <div class="small-12 columns">
-        <button id="rock" @click="player(1)">ROCK</button>
-        <button id="paper" @click="player(2)">PAPER</button>
-        <button id="scissors" @click="player(3)">SCISSORS</button>
+        <button id="rock" @click="selectChoice(1)">ROCK</button>
+        <button id="paper" @click="selectChoice(2)">PAPER</button>
+        <button id="scissors" @click="selectChoice(3)">SCISSORS</button>
         <button id="restart" @click="reset()">RESTART</button>
     </div>
   </section>
   <section class="row log" v-if="!start">
     <div class="small-12 columns">
       <ul>
-        <li>
-          
+        <li v-for="item in output.slice().reverse()" :class="{'player-turn': item.player, 'computer-turn': item.computer, 'tie-turn': item.tie}">
+          {{item.message}}
+          {{showResult}}
+          {{endGame}}
         </li>
       </ul>
     </div>

@@ -54,6 +54,52 @@ new Vue({
       }
     },
 
+    showResult() {
+      if (this.playerChoice == 1 && this.computerChoice == 3) {
+        this.playerScore++
+        this.output.push({message: 'COMPUTER CHOSE SCISSORS | ROCK BEATS SCISSORS | PLAYER WINS!', player: true})
+      }
+      else if (this.playerChoice == 1 && this.computerChoice == 2) {  
+        this.computerScore++
+        this.output.push({message: 'COMPUTER CHOSE PAPER | PAPER BEATS ROCK | COMPUTER WINS!', computer: true},)
+      }
+      else if (this.playerChoice == 1 && this.computerChoice == 1) {  
+        this.output.push({message: 'COMPUTER CHOSE ROCK | YOU HAVE TIED!', tie: true})
+      }
+      else if (this.playerChoice == 2 && this.computerChoice == 1) {
+        this.playerScore++
+        this.output.push({message: 'COMPUTER CHOSE ROCK | PAPER BEATS ROCK | PLAYER WINS!', player: true})
+      }
+      else if (this.playerChoice == 2 && this.computerChoice == 3) {  
+        this.computerScore++
+        this.output.push({message: 'COMPUTER CHOSE SCISSORS | SCISSORS BEATS PAPER | COMPUTER WINS!', computer: true})
+      }
+      else if (this.playerChoice == 2 && this.computerChoice == 2) {  
+        this.output.push({message: 'COMPUTER CHOSE PAPER | YOU HAVE TIED!',tie:true})
+      }
+      else if (this.playerChoice == 3 && this.computerChoice == 2) {
+        this.computerScore++
+        this.output.push({message: 'COMPUTER CHOSE PAPER | SCISSORS BEATS PAPER | PLAYER WINS!', player: true})
+      }
+      else if (this.playerChoice == 3 && this.computerChoice == 1) {  
+        this.computerScore++
+        this.output.push({message: 'COMPUTER CHOSE ROCK | ROCK BEATS SCISSORS | COMPUTER WINS!', computer: true})
+      }
+      else if (this.playerChoice == 3 && this.computerChoice == 3) {  
+        this.output.push({message: 'COMPUTER CHOSE SCISSORS | YOU HAVE TIED!', tie: true})
+      }
+    },
+
+    endGame() {
+      if (this.playerScore == 10) {
+        alert('Player Wins! Play Again?')
+        this.reset()
+      }
+      else if (this.computerScore == 10) {
+        alert('Computer Wins! Play Again?')
+        this.reset()
+      }
+    }
     }
     
   });
