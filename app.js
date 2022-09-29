@@ -78,7 +78,7 @@ new Vue({
         this.output.push({message: 'COMPUTER CHOSE PAPER | YOU HAVE TIED!',tie:true})
       }
       else if (this.playerChoice == 3 && this.computerChoice == 2) {
-        this.computerScore++
+        this.playerScore++
         this.output.push({message: 'COMPUTER CHOSE PAPER | SCISSORS BEATS PAPER | PLAYER WINS!', player: true})
       }
       else if (this.playerChoice == 3 && this.computerChoice == 1) {  
